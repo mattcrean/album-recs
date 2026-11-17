@@ -2,3 +2,33 @@
 #
 # Documentation for this file format can be found in "The Data Catalog"
 # Link: https://docs.kedro.org/en/stable/catalog-data/introduction/#data-catalog
+
+# --- 01_raw ---
+tracks_features:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/tracks_features.csv
+
+playlists_dump:
+  type: album_recs.datasets.RawFilePathDataset
+  filepath: data/01_raw/playlists_dump.sql
+
+# --- 02_intermediate ---
+preprocessed_tracks:
+  type: pandas.ParquetDataset
+  filepath: data/02_intermediate/preprocessed_tracks.pq
+
+preprocessed_playlists:
+  type: album_recs.datasets.ParquetFileDataset
+  filepath: data/02_intermediate/preprocessed_playlists.pq
+
+preprocessed_sql_tracks:
+  type: album_recs.datasets.ParquetFileDataset
+  filepath: data/02_intermediate/preprocessed_sql_tracks.pq
+
+preprocessed_sql_albums:
+  type: album_recs.datasets.ParquetFileDataset
+  filepath: data/02_intermediate/preprocessed_sql_albums.pq
+
+preprocessed_playlist_tracks:
+  type: album_recs.datasets.ParquetFileDataset
+  filepath: data/02_intermediate/preprocessed_playlist_tracks.pq
